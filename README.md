@@ -1,18 +1,9 @@
-# RGB + NiR Editing App
+# React + Vite
 
-## Setup
+This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
-To setup the project and virtual env I used <a href='https://python-poetry.org/'>poetry</a>, but it should be doable with regular pip.
+# Setup:
 
-### Poetry commands
-
-- To start a virtual environment: `poetry shell`
-
-- To install packages, run in the same directory as `poetry.lock`: `poetry install`
-
-- To add a package: `poetry add <package-name>`
-
-## Running
-
-To run: `python manage.py runserver`
-The webpage should be available at `localhost:8000`
+- Have nodejs and react installed.
+- To update packages: `npm install`
+- To run application: `npm run dev`
