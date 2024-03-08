@@ -1,11 +1,26 @@
-import React, { useState } from "react";
+import React, { useState, useRef } from "react";
 
-const ImageView = () => {
-  const [image, setImage] = useState(null);
-
+const ImageView = ({ imageRef, image, setImage }) => {
   const handleImageUpload = (event) => {
+    // Reference: https://javascript.info/file
     const file = event.target.files[0];
-    setImage(URL.createObjectURL(file));
+    if (file) {
+      const reader = new FileReader();
+      reader.onload = (event) => {
+        const img = new Image();
+        img.onload = (event) => {
+          console.log(file);
+          const canvas = imageRef?.current;
+          canvas.width = img.width;
+          canvas.height = img.height;
+          const ctx = canvas.getContext("2d");
+          ctx.drawImage(img, 0, 0);
+        };
+        img.src = event.target.result;
+      };
+      reader.readAsDataURL(file);
+      setImage(file);
+    }
   };
 
   return (
@@ -21,7 +36,7 @@ const ImageView = () => {
           />
         </label>
       ) : (
-        <img src={image} alt="ImageView" className="uploaded-image" />
+        <canvas ref={imageRef} alt="ImageView" className="uploaded-image" />
       )}
     </div>
   );
