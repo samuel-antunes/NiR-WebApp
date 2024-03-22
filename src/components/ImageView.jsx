@@ -1,6 +1,6 @@
 import React, { useState, useRef } from "react";
 
-const ImageView = ({ imageRef, image, setImage }) => {
+const ImageView = ({ imageRef, image, setImage, parentID }) => {
   const handleImageUpload = (event) => {
     // Reference: https://javascript.info/file
     const file = event.target.files[0];
@@ -36,7 +36,12 @@ const ImageView = ({ imageRef, image, setImage }) => {
           />
         </label>
       ) : (
-        <canvas ref={imageRef} alt="ImageView" className="uploaded-image" />
+        <canvas
+          ref={imageRef}
+          id={`${parentID}-canvas`}
+          alt="ImageView"
+          className="uploaded-image"
+        />
       )}
     </div>
   );

@@ -29,3 +29,8 @@
   width: auto;
   object-fit: contain;
 }
+
+.ui {
+  display: flex;
+  flex-direction: column;
+}
