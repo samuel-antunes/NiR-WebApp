@@ -27,7 +27,7 @@ const ImageView = ({ imageRef, image, setImage, parentID }) => {
     <div className="image-view">
       {!image ? (
         <label className="upload-box">
-          Click here to upload an image!
+          Click here to upload an {parentID.toUpperCase()} image!
           <input
             type="file"
             onChange={handleImageUpload}
@@ -40,7 +40,7 @@ const ImageView = ({ imageRef, image, setImage, parentID }) => {
           ref={imageRef}
           id={`${parentID}-canvas`}
           alt="ImageView"
-          className="uploaded-image"
+          className="input-canvas"
         />
       )}
     </div>
